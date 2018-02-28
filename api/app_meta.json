@@ -1,0 +1,265 @@
+﻿{
+  "menu": [
+    {
+      "name": "PROJECT 106",
+      "modules": [        
+        {
+          "name": "סוגי משימות",
+          "state": "app.proj106.setup.tasktypes",
+          "icon": "fa fa-tasks",
+          "separateAfter": true
+        },
+        {
+          "name": "מחלקות",
+          "state": "app.proj106.setup.departments",
+          "icon": "fa fa-tasks",
+          "separateAfter": true
+        }
+      ]
+    }
+
+  ],
+  "accessLevels": [
+    {
+      "value": 0,
+      "text": "אדמיניסטרטור"
+    },
+    {
+      "value": 1,
+      "text": "מנהל מערכת"
+    },
+    {
+      "value": 2,
+      "text": "משתמש"
+    }
+  ],
+  "dep_accessLevels": [
+    {
+      "value": "N",
+      "text": "לא מורשה"
+    },
+    {
+      "value": "U",
+      "text": "משתמש"
+    },
+    {
+      "value": "M",
+      "text": "מנהל"
+    }
+  ],
+  "callStatus": [
+    {
+      "value": "O",
+      "text": "פתוח",
+      "icon": "fa fa-unlock",
+      "color": ""
+    },
+    {
+      "value": "C",
+      "text": "סגור",
+      "icon": "fa fa-lock",
+      "color": "text-success",
+      "actionText": "סגור",
+      "actionClass": "btn-success"
+    }
+  ],
+  "callTypes": [
+    {
+      "value": "Q",
+      "text": "שאלה",
+      "icon": "fa fa-question-circle",
+      "color": ""
+    },
+    {
+      "value": "I",
+      "text": "מידע",
+      "icon": "fa fa-info-circle",
+      "color": ""
+    },
+    {
+      "value": "E",
+      "text": "ארוע",
+      "icon": "fa fa-calendar-o",
+      "color": ""
+    },
+    {
+      "value": "O",
+      "text": "אחר",
+      "icon": "fa fa-ellipsis-h",
+      "color": ""
+    }
+  ],
+  "callSource": [
+    {
+      "value": "CS",
+      "text": "מוקד",
+      "icon": "fa fa-phone",
+      "color": ""
+    },
+    {
+      "value": "W",
+      "text": "רשת",
+      "icon": "fa fa-globe",
+      "color": ""
+    }
+  ],
+  "enumPriority": [
+    {
+      "value": "N",
+      "text": "רגיל",
+      "icon": "fa fa-flag-o",
+      "color": "text-primary",
+      "bg": "bg-primary"
+    },
+    {
+      "value": "I",
+      "text": "חשוב",
+      "icon": "fa fa-flag-checkered",
+      "color": "text-warning",
+      "bg": "bg-warning"
+    },
+    {
+      "value": "U",
+      "text": "דחוף",
+      "icon": "fa fa-flag",
+      "color": "text-danger",
+      "bg": "bg-danger"
+    }
+  ],
+  "eventStatus": [
+    {
+      "value": "O",
+      "text": "פתוח",
+      "icon": "fa fa-unlock",
+      "color": ""
+    },
+    {
+      "value": "C",
+      "text": "סגור",
+      "icon": "fa fa-lock",
+      "color": "text-success",
+      "actionText": "סגור ארוע",
+      "actionClass": "btn-success"
+    }
+  ],
+  "taskStatus": [
+    {
+      "value": "O",
+      "text": "פתוח",
+      "icon": "fa fa-unlock",
+      "color": "",
+      "actionClass": "btn-light"
+    },
+    {
+      "value": "I",
+      "text": "בעבודה",
+      "icon": "fa fa-cog",
+      "color": "text-primary",
+      "actionText": "התחל עבודה",
+      "actionClass": "btn-dark"
+    },
+    {
+      "value": "C",
+      "text": "סגור",
+      "icon": "fa fa-lock",
+      "color": "text-success",
+      "actionText": "סגור משימה",
+      "actionClass": "btn-success"
+    },
+    {
+      "value": "E",
+      "text": "הוחמר",
+      "icon": "fa fa-ban",
+      "color": "text-danger",
+      "actionText": "החמר משימה",
+      "actionClass": "btn-danger"
+    }
+  ],
+  "enumBool": [
+    {
+      "value": true,
+      "text": "כן"
+    },
+    {
+      "value": "false",
+      "text": "לא"
+    }
+  ],
+  "task_question_data_types": [
+    {
+      "value": "text",
+      "text": "תאור"
+    },
+    {
+      "value": "longText",
+      "text": "תאור ארוך"
+    },
+    {
+      "value": "selection",
+      "text": "בחירה"
+    },
+    {
+      "value": "selectionMulty",
+      "text": "בחירה מרובה"
+    }
+  ],
+  "add_to_call_reasons": [
+    {
+      "value": "RC",
+      "text": "ברור"
+    },
+    {
+      "value": "AI",
+      "text": "מידע נוסף"
+    },
+    {
+      "value": "O",
+      "text": "אחר"
+    }
+  ],
+  "task_sla_type": [
+    {
+      "value": "H24",
+      "text": "שעתי 24 שעות"
+    },
+    {
+      "value": "HW",
+      "text": "שעתי בשעות העבודה"
+    },
+    {
+      "value": "HM",
+      "text": "שעתי עד חצות"
+    },
+    {
+      "value": "D",
+      "text": "תקן יומי"
+    }
+  ],
+  "contact_methods": [
+    {
+      "value": "SMS",
+      "text": "SMS"
+    },
+    {
+      "value": "EMAIL",
+      "text": "Email"
+    }
+  ],
+  "establishment_types": [
+    {
+      "value": "synagogue",
+      "text": "בית כנסת"
+    },{
+      "value": "youthCenter",
+      "text": "מתנ\"ם"
+    },
+    {
+      "value": "elementary",
+      "text": "ביה\"ס יסודי"
+    },
+    {
+      "value": "juniorhigh",
+      "text": "ביה\"ס תיכוני"
+    }
+  ]
+}

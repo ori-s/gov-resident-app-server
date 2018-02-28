@@ -1,0 +1,8 @@
+{
+  "id": 3,
+  "name": "Data Entry",
+  "email": "aa1@Gmail.com",
+  "userType": 1,
+  "token": "e9e51e9a-22e5-4795-8653-2e434e72f46f",
+  "roles": ["samples", "setup", "students","editStudent"]
+}
