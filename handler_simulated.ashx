@@ -15,7 +15,7 @@ using System.Xml;
 
 public class handler_simulated : IHttpHandler {
 
-    const string _cookieName = "tracknow-token";
+    const string _cookieName = "token";
     const int Insert = 6;
     const int Update = 2;
     const int Delete = 8;
@@ -60,7 +60,7 @@ public class handler_simulated : IHttpHandler {
     {
         if (!validateSession(context)) return;
         XmlDocument criteria = getPostData(context);
-        Guid sessionKey = new Guid(HttpUtility.UrlDecode(context.Request.Cookies.Get(_cookieName).Value).Replace("\"", string.Empty));
+        Guid sessionKey = new Guid(HttpUtility.UrlDecode(context.Request.QueryString["token"]).Replace("\"", string.Empty));
 
         string sPath = context.Server.MapPath("api/");
         string fileName = null;
@@ -98,7 +98,7 @@ public class handler_simulated : IHttpHandler {
         string entityType = context.Request.QueryString["ET"];
         string requestType = context.Request.QueryString["ACT"];
         XmlDocument criteria = getPostData(context);
-        Guid sessionKey = new Guid(HttpUtility.UrlDecode(context.Request.Cookies.Get(_cookieName).Value).Replace("\"", string.Empty));
+        Guid sessionKey = new Guid(HttpUtility.UrlDecode(context.Request.QueryString["token"]).Replace("\"", string.Empty));
         string json = null;
         switch (requestType)
         {
@@ -187,7 +187,7 @@ public class handler_simulated : IHttpHandler {
             postData.number = (jArray.Count + 1).ToString().PadLeft(4,'0');
             postData.created = DateTime.UtcNow.ToString("o");
             postData.createdBy = "Ori Schreiber";
-            
+
             jArray.Add(postData);
         }
         else //save edit
@@ -257,8 +257,8 @@ public class handler_simulated : IHttpHandler {
 
     private bool validateSession(HttpContext context)
     {
-        HttpCookie c = context.Request.Cookies.Get(_cookieName);
-        if (c == null || String.IsNullOrEmpty(c.Value))
+        string token = context.Request.QueryString["token"];
+        if (String.IsNullOrEmpty(token))
         {
             generateHTTPError(context, "Please login!", 401);
             return false;

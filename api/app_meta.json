@@ -1,265 +1,135 @@
 ﻿{
   "menu": [
     {
-      "name": "PROJECT 106",
-      "modules": [        
+      "name": null,
+      "modules": [
         {
-          "name": "סוגי משימות",
-          "state": "app.proj106.setup.tasktypes",
-          "icon": "fa fa-tasks",
-          "separateAfter": true
+          "name": "Home Page",
+          "state": "app.home",
+          "icon": "icon-home"
+        }
+      ]
+    },{
+      "name": "Messages",
+      "modules": [
+        {
+          "name": "Message Groups",
+          "state": "app.message-groups.subscribe",
+          "icon": "icon-account-multiple-plus"
         },
         {
-          "name": "מחלקות",
-          "state": "app.proj106.setup.departments",
-          "icon": "fa fa-tasks",
-          "separateAfter": true
+          "id": "messages",
+          "name": "Message Center",
+          "state": "app.mail.threads",
+          "icon": "icon-email",
+          "stateParams": {
+            "filter": "inbox",
+            "type": "null"
+          },
+          "badge": {
+            "color": "#d68324",
+            "field": "unreadMessages"
+          }
+        },
+        {
+          "id": "scheduledMessages",
+          "name": "Scheduled Messages",
+          "state": "app.mail.threads",
+          "stateParams": {
+            "filter": "scheduled",
+            "type": "null"
+          },
+          "icon": "icon-calendar-text",
+          "badge": {
+            "color": "#F44336",
+            "field": "urgentMessages"
+          }
+        }
+      ]
+    },
+    
+    {
+      "name": "Resident",
+      "modules": [
+        {
+          "name": "Moked 106",
+          "state": "app.resident.106",
+          "icon": "icon-phone-log"
+        },
+        {
+          "name": "Education",
+          "state": "app.resident.education",
+          "icon": "icon-android-studio"
+        },
+        {
+          "name": "Arnona and License",
+          "state": "app.resident.arnona",
+          "icon": "icon-hospital-building"
+        },
+        {
+          "name": "Wellfare",
+          "state": "app.resident.wellfare",
+          "icon": "icon-human"
+        }
+      ]
+    },
+    {
+      "name": "ADMIN",
+      "modules": [
+        {
+          "name": "Group Maintenance",
+          "state": "app.message-groups.groups-setup",
+          "icon": "icon-table-edit"
         }
       ]
     }
+  ],
+  "group_categories": [
+    {
+      "id": "a0",
+      "name": "הודעות עריה",
+      "avatar": "assets/images/backgrounds/january.jpg"
+    },
+    {
+      "id": "a",
+      "name": "חינוך",
+      "avatar": "assets/images/backgrounds/february.jpg"
+    },
+    {
+      "id": "b",
+      "name": "תרבות",
+      "avatar": "assets/images/backgrounds/march.jpg"
+    },
+    {
+      "id": "c",
+      "name": "קיימות",
+      "avatar": "assets/images/backgrounds/april.jpg"
+    },
+    {
+      "id": "d",
+      "name": "תברואה",
+      "avatar": "assets/images/backgrounds/june.jpg"
+    }
+  ],
+  "group_types": [
+    {
+      "id": "pr",
+      "name": "פרטית"
+    },
+    {
+      "id": "pu",
+      "name": "ציבורית"
+    }
+  ],
+  "group_active": [
+    {
+      "id": true,
+      "name": "קבוצה פעילה"
+    },
+    {
+      "id": false,
+      "name": "קבוצה לא פעילה"
+    }
 
-  ],
-  "accessLevels": [
-    {
-      "value": 0,
-      "text": "אדמיניסטרטור"
-    },
-    {
-      "value": 1,
-      "text": "מנהל מערכת"
-    },
-    {
-      "value": 2,
-      "text": "משתמש"
-    }
-  ],
-  "dep_accessLevels": [
-    {
-      "value": "N",
-      "text": "לא מורשה"
-    },
-    {
-      "value": "U",
-      "text": "משתמש"
-    },
-    {
-      "value": "M",
-      "text": "מנהל"
-    }
-  ],
-  "callStatus": [
-    {
-      "value": "O",
-      "text": "פתוח",
-      "icon": "fa fa-unlock",
-      "color": ""
-    },
-    {
-      "value": "C",
-      "text": "סגור",
-      "icon": "fa fa-lock",
-      "color": "text-success",
-      "actionText": "סגור",
-      "actionClass": "btn-success"
-    }
-  ],
-  "callTypes": [
-    {
-      "value": "Q",
-      "text": "שאלה",
-      "icon": "fa fa-question-circle",
-      "color": ""
-    },
-    {
-      "value": "I",
-      "text": "מידע",
-      "icon": "fa fa-info-circle",
-      "color": ""
-    },
-    {
-      "value": "E",
-      "text": "ארוע",
-      "icon": "fa fa-calendar-o",
-      "color": ""
-    },
-    {
-      "value": "O",
-      "text": "אחר",
-      "icon": "fa fa-ellipsis-h",
-      "color": ""
-    }
-  ],
-  "callSource": [
-    {
-      "value": "CS",
-      "text": "מוקד",
-      "icon": "fa fa-phone",
-      "color": ""
-    },
-    {
-      "value": "W",
-      "text": "רשת",
-      "icon": "fa fa-globe",
-      "color": ""
-    }
-  ],
-  "enumPriority": [
-    {
-      "value": "N",
-      "text": "רגיל",
-      "icon": "fa fa-flag-o",
-      "color": "text-primary",
-      "bg": "bg-primary"
-    },
-    {
-      "value": "I",
-      "text": "חשוב",
-      "icon": "fa fa-flag-checkered",
-      "color": "text-warning",
-      "bg": "bg-warning"
-    },
-    {
-      "value": "U",
-      "text": "דחוף",
-      "icon": "fa fa-flag",
-      "color": "text-danger",
-      "bg": "bg-danger"
-    }
-  ],
-  "eventStatus": [
-    {
-      "value": "O",
-      "text": "פתוח",
-      "icon": "fa fa-unlock",
-      "color": ""
-    },
-    {
-      "value": "C",
-      "text": "סגור",
-      "icon": "fa fa-lock",
-      "color": "text-success",
-      "actionText": "סגור ארוע",
-      "actionClass": "btn-success"
-    }
-  ],
-  "taskStatus": [
-    {
-      "value": "O",
-      "text": "פתוח",
-      "icon": "fa fa-unlock",
-      "color": "",
-      "actionClass": "btn-light"
-    },
-    {
-      "value": "I",
-      "text": "בעבודה",
-      "icon": "fa fa-cog",
-      "color": "text-primary",
-      "actionText": "התחל עבודה",
-      "actionClass": "btn-dark"
-    },
-    {
-      "value": "C",
-      "text": "סגור",
-      "icon": "fa fa-lock",
-      "color": "text-success",
-      "actionText": "סגור משימה",
-      "actionClass": "btn-success"
-    },
-    {
-      "value": "E",
-      "text": "הוחמר",
-      "icon": "fa fa-ban",
-      "color": "text-danger",
-      "actionText": "החמר משימה",
-      "actionClass": "btn-danger"
-    }
-  ],
-  "enumBool": [
-    {
-      "value": true,
-      "text": "כן"
-    },
-    {
-      "value": "false",
-      "text": "לא"
-    }
-  ],
-  "task_question_data_types": [
-    {
-      "value": "text",
-      "text": "תאור"
-    },
-    {
-      "value": "longText",
-      "text": "תאור ארוך"
-    },
-    {
-      "value": "selection",
-      "text": "בחירה"
-    },
-    {
-      "value": "selectionMulty",
-      "text": "בחירה מרובה"
-    }
-  ],
-  "add_to_call_reasons": [
-    {
-      "value": "RC",
-      "text": "ברור"
-    },
-    {
-      "value": "AI",
-      "text": "מידע נוסף"
-    },
-    {
-      "value": "O",
-      "text": "אחר"
-    }
-  ],
-  "task_sla_type": [
-    {
-      "value": "H24",
-      "text": "שעתי 24 שעות"
-    },
-    {
-      "value": "HW",
-      "text": "שעתי בשעות העבודה"
-    },
-    {
-      "value": "HM",
-      "text": "שעתי עד חצות"
-    },
-    {
-      "value": "D",
-      "text": "תקן יומי"
-    }
-  ],
-  "contact_methods": [
-    {
-      "value": "SMS",
-      "text": "SMS"
-    },
-    {
-      "value": "EMAIL",
-      "text": "Email"
-    }
-  ],
-  "establishment_types": [
-    {
-      "value": "synagogue",
-      "text": "בית כנסת"
-    },{
-      "value": "youthCenter",
-      "text": "מתנ\"ם"
-    },
-    {
-      "value": "elementary",
-      "text": "ביה\"ס יסודי"
-    },
-    {
-      "value": "juniorhigh",
-      "text": "ביה\"ס תיכוני"
-    }
   ]
 }
