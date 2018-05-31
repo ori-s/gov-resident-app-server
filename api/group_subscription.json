@@ -1,0 +1,10 @@
+﻿{
+  "groupId": 123,
+  "subscription": {
+    "id": 123,
+    "groupId": "a0_1",
+    "email": true,
+    "sms": true,
+    "calendar": true
+  }
+}

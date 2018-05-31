@@ -1,0 +1,12 @@
+﻿{  
+  "firstName": "Orel",
+  "lastName": "Schreiber",
+  "email": "ori.schreiber@gmail.com",
+  "phone": "0524402515",
+  "avatar": "assets/images/avatars/Abbott.jpg",
+  "notifications": {
+    "email": true,
+    "sms": true,
+    "calendar": true
+  }
+}

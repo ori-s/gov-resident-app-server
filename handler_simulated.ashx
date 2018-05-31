@@ -26,24 +26,15 @@ public class handler_simulated : IHttpHandler {
         string sAction = context.Request.QueryString["Action"];
         context.Response.CacheControl = "no-cache";
         context.Response.ContentType = "application/json";
-
         try
         {
-            if (sAction == "login")
+            switch (sAction)
             {
-                handleLogin(context);
-            }
-            else if (sAction == "resetPSW")
-            {
-                context.Response.WriteFile(context.Server.MapPath("api/") + "resetPSW.json");
-            }
-            else if (sAction == "generalEntity")
-            {
-                handleEntityAction(context);
-            }
-            else
-            {
-                handleHTTPAction(context, sAction);
+                case "login": handleLogin(context); break;
+                case "resetPass": context.Response.Write("{}"); break;
+                case "register": context.Response.Write("{}"); break;
+                case "generalEntity": handleEntityAction(context); break;
+                default: handleHTTPAction(context, sAction); break;
             }
         }
         catch (Exception ex)
@@ -69,10 +60,22 @@ public class handler_simulated : IHttpHandler {
         switch (sAction)
         {
             case "userInfo":
-                fileName = "app_login.json";
+                fileName = "login.json";
                 break;
             case "appMeta":
-                fileName = "app_meta.json";
+                fileName = "meta.json";
+                break;
+            case "group_subscription":
+                json = "{}";
+                break;
+            case "message_counters":
+                fileName = "message_counters.json";
+                break;
+            case "message_status":
+                json = "{}";
+                break;
+            case "message_comment":
+                fileName = "message_comment.json";
                 break;
             default:
                 generateHTTPError(context, "Interface: \"" + sAction + "\" not supported!");
@@ -131,7 +134,7 @@ public class handler_simulated : IHttpHandler {
     private void getEntityRows(HttpContext context, string entityType)
     {
         dynamic postData = JsonConvert.DeserializeObject<dynamic>(getPostStringData(context));
-        string sPath = context.Server.MapPath("api/") + "app_" + entityType + ".json";
+        string sPath = context.Server.MapPath("api/") + "" + entityType + ".json";
         if (postData.SiteId != null)
         {
             string results = getStringFromFile(sPath);
@@ -152,8 +155,15 @@ public class handler_simulated : IHttpHandler {
     private void getEntityDetails(HttpContext context, string entityType)
     {
         dynamic postData = JsonConvert.DeserializeObject<dynamic>(getPostStringData(context));
-        string sPath = context.Server.MapPath("api/") + "app_" + entityType + ".json";
+        string sPath = context.Server.MapPath("api/") + "" + entityType + ".json";
         string results = getStringFromFile(sPath);
+        switch (entityType)
+        {
+                case "account":
+                    context.Response.Write(results);
+                    return;
+        }
+
         JArray jArray = (JArray)JsonConvert.DeserializeObject(results);
         string itemId = postData.id.ToString();
         for (int i = jArray.Count - 1; i >= 0; i--)
@@ -176,8 +186,16 @@ public class handler_simulated : IHttpHandler {
     {
         dynamic postData = JsonConvert.DeserializeObject<dynamic>(getPostStringData(context));
 
-        string sPath = context.Server.MapPath("api/") + "app_" + entityType + ".json";
+        string sPath = context.Server.MapPath("api/") + "" + entityType + ".json";
         string results = getStringFromFile(sPath);
+
+        switch (entityType)
+        {
+                case "account":
+                    context.Response.Write(results);
+                    return;
+        }
+
         JArray jArray = (JArray)JsonConvert.DeserializeObject(results);
 
         if (postData.id == null || postData.id == "")//save new
@@ -217,7 +235,7 @@ public class handler_simulated : IHttpHandler {
     {
         dynamic postData = JsonConvert.DeserializeObject<dynamic>(getPostStringData(context));
 
-        string sPath = context.Server.MapPath("api/") + "app_" + entityType + ".json";
+        string sPath = context.Server.MapPath("api/") + "" + entityType + ".json";
         string results = getStringFromFile(sPath);
         JArray jArray = (JArray)JsonConvert.DeserializeObject(results);
 
@@ -245,7 +263,7 @@ public class handler_simulated : IHttpHandler {
         XmlDocument criteria = getPostData(context);
         if (true)// Simulates Success
         {
-            context.Response.WriteFile(context.Server.MapPath("api/app_login.json"));
+            context.Response.WriteFile(context.Server.MapPath("api/login.json"));
         }
         else
         {

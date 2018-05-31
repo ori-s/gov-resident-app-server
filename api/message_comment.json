@@ -1,0 +1,11 @@
+﻿{
+  "parentComment": null,
+  "id": "123",
+  "message": "sample message",
+  "created": "2018-03-01T19:38:46.8529468Z",
+  "user": {
+    "name": "user name",
+    "id": "user id",
+    "avatar": "assets/images/avatars/Abbott.jpg"
+  }
+}

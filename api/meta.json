@@ -47,7 +47,16 @@
         }
       ]
     },
-    
+    {
+      "name": "System Settings",
+      "modules": [
+        {
+          "name": "Account Setup",
+          "state": "app.account",
+          "icon": "icon-account-box-outline"
+        }
+      ]
+    },
     {
       "name": "Resident",
       "modules": [
